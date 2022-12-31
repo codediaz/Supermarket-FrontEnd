@@ -35,9 +35,9 @@ export class ProductService {
     return this.http.put<ResponseApi>(this.myApiUrl, request)
   }
 
-  delete(code:string):Observable<ResponseApi>{
+  delete(id:number):Observable<ResponseApi>{
 
-    return this.http.delete<ResponseApi>(`${this.myApiUrl}/${code}`)
+    return this.http.delete<ResponseApi>(`${this.myApiUrl}/${id}`)
   }
   
 }

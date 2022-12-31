@@ -22,6 +22,7 @@ export class DialogAddEditComponent implements OnInit {
  
   constructor(
     private dialogReference: MatDialogRef<DialogAddEditComponent>,
+    @Inject(MAT_DIALOG_DATA) public productData:Product,
     private fb: FormBuilder,
     private _snackBar: MatSnackBar,
     private _productService: ProductService
@@ -39,6 +40,17 @@ export class DialogAddEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.productData){
+      this.formProduct.patchValue({
+        code: this.productData.code,
+        name: this.productData.name,
+        description: this.productData.description,
+        quantity: this.productData.quantity
+      })
+
+      this.action = "Editar"
+      this.actionButton = "Actualizar"
+    }
   }
 
   showAlert(msg:string, title:string){
@@ -51,25 +63,45 @@ export class DialogAddEditComponent implements OnInit {
 
   addEditProduct(){
     const model:Product={
-      idItem: 0,
+      idItem: this.productData == null?0: this.productData.idItem,
       code: this.formProduct.value.code,
       name: this.formProduct.value.name,
       description: this.formProduct.value.description,
       quantity: this.formProduct.value.quantity
     }
 
-    this._productService.add(model).subscribe({
-      next:(data)=>{
-        if(data.status){
-          this.showAlert("Producto agregado!", "success");
-          this.dialogReference.close('created');
-          location.reload()
-        }else{
-          this.showAlert("Error al agregar el producto", "Error")
-        }
-      },
-      error:(e)=>{}
-    })
+    if(this.productData== null){
+
+      this._productService.add(model).subscribe({
+        next:(data)=>{
+          if(data.status){
+            this.showAlert("Producto agregado!", "success");
+            this.dialogReference.close('created');
+            location.reload()
+           
+          }else{
+            this.showAlert("Error al agregar el producto", "Error")
+          }
+        },
+        error:(e)=>{}
+      })
+
+    }else{
+      this._productService.update(model).subscribe({
+        next:(data)=>{
+          if(data.status){
+            this.showAlert("Producto actualizado!", "success");
+            this.dialogReference.close('Edited succesfully');
+            
+          }else{
+            this.showAlert("Error al actualizar el producto", "Error")
+          }
+        },
+        error:(e)=>{}
+      })
+    }
+
+    
   }
 
 }

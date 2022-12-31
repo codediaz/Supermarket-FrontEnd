@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Eliminar Articulo</h2>
+
+<div mat-dialog-content>
+    Estás seguro que deseas eliminar el producto "{{productDelete.name}}"
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close>No, cancelar</button>
+    <button mat-raised-button color="warn" cdkFocusInitial (click)="confirmDelete()">Si, eliminar</button>
+</div>
