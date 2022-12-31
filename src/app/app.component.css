@@ -6,3 +6,21 @@ table{
     font-size: 14px;
     width:100%;
 }
+
+.section-buttons{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    flex: content;
+}
+
+.special-buttons{
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.title-principal{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}

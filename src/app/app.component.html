@@ -1,7 +1,10 @@
 <div style="width: 80%; margin-top:50px; margin:auto; padding: 20px;">
-  <h1>
-    Listado de Productos
-  </h1>
+  <div class="title-principal">
+    <h1>
+      Listado de Productos
+    </h1>
+  </div>
+  
     
   <mat-form-field appearance="standard">
     <mat-label>Buscar</mat-label>
@@ -47,7 +50,7 @@
       <tr mat-row *matRowDef="let row; columns:displayedColumns"></tr>
 
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="6">No exite el dato "{{ input.value}}"</td>
+        <td class="mat-cell" colspan="6">No existe el producto "{{ input.value}}"</td>
       </tr>
 
     </table>
@@ -60,11 +63,11 @@
       <mat-icon mat-list-icon>add</mat-icon> Insertar Artículo
     </button>
 
-    <button mat-raised-button>
+    <button mat-raised-button class="special-buttons">
       <mat-icon mat-list-icon>edit</mat-icon> Modificar Artículo
     </button>
 
-    <button mat-raised-button color="warn">
+    <button mat-raised-button color="warn" class="special-buttons">
       <mat-icon mat-list-icon>delete</mat-icon> Eliminar Artículo
     </button>
   </div>

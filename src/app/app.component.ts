@@ -10,8 +10,6 @@ import { ProductService } from './Services/product.service';
 import { DialogAddEditComponent } from './Dialogs/dialog-add-edit/dialog-add-edit.component';
 import { DialogDeleteComponent } from './Dialogs/dialog-delete/dialog-delete.component';
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -111,10 +109,4 @@ export class AppComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-  
-
-  
-
-
 }
