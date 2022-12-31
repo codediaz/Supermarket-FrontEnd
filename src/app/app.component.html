@@ -2,10 +2,7 @@
   <h1>
     Listado de Productos
   </h1>
-  <button mat-raised-button color="primary">
-    <mat-icon mat-list-icon></mat-icon> Nuevo Producto
-  </button>
-  
+    
   <mat-form-field appearance="standard">
     <mat-label>Buscar</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder ="" #input>
@@ -54,4 +51,16 @@
 
     <mat-paginator [pageSizeOptions]="[5,10,25,100]" aria-label="Selecciona la pagina de productos"></mat-paginator>
   </div>
+  <div class="container section-buttons">
+    <button mat-raised-button color="primary">
+      <mat-icon mat-list-icon>add</mat-icon> Insertar Artículo
+    </button>
+    <button mat-raised-button>
+      <mat-icon mat-list-icon>edit</mat-icon> Modificar Artículo
+    </button>
+    <button mat-raised-button color="warn">
+      <mat-icon mat-list-icon>delete</mat-icon> Eliminar Artículo
+    </button>
+  </div>
+  
 </div>
