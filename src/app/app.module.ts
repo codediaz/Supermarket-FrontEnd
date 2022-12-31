@@ -23,13 +23,15 @@ import {MatIconModule} from '@angular/material/icon'
 //*7. To work with modals
 import {MatDialogModule} from '@angular/material/dialog'
 //*8. To work with Grids
-import {MatGridListModule} from '@angular/material/grid-list'
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DialogAddEditComponent } from './Dialogs/dialog-add-edit/dialog-add-edit.component'
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogAddEditComponent
   ],
   imports: [
     BrowserModule,

@@ -52,12 +52,15 @@
     <mat-paginator [pageSizeOptions]="[5,10,25,100]" aria-label="Selecciona la pagina de productos"></mat-paginator>
   </div>
   <div class="container section-buttons">
-    <button mat-raised-button color="primary">
+
+    <button mat-raised-button color="primary" (click)="addNewProduct()">
       <mat-icon mat-list-icon>add</mat-icon> Insertar Artículo
     </button>
+
     <button mat-raised-button>
       <mat-icon mat-list-icon>edit</mat-icon> Modificar Artículo
     </button>
+
     <button mat-raised-button color="warn">
       <mat-icon mat-list-icon>delete</mat-icon> Eliminar Artículo
     </button>

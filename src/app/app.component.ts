@@ -6,6 +6,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductService } from './Services/product.service';
 
+//?Dialogs
+import { DialogAddEditComponent } from './Dialogs/dialog-add-edit/dialog-add-edit.component';
+
+
 
 @Component({
   selector: 'app-root',
@@ -21,7 +25,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   constructor(
     private _snackbar: MatSnackBar,
-    private _productService: ProductService
+    private _productService: ProductService,
+    private dialog: MatDialog
   ){
 
   }
@@ -51,6 +56,17 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
       this.dataProduct.paginator = this.paginator;
+  }
+
+  addNewProduct(){
+    this.dialog.open(DialogAddEditComponent,{
+      disableClose:true,
+      width:"350px"
+    }).afterClosed().subscribe(result=>{
+      if(result === "Product Created"){
+        this.showProducts();
+      }
+    })
   }
   
 
