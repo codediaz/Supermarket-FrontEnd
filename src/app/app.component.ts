@@ -14,7 +14,7 @@ import { ProductService } from './Services/product.service';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'Supermarket';
-  displayedColumns:string[]= ['Index','Cód. Art', 'Nombre Art.', 'Des. Art.', 'Cant. Art.', ' ']
+  displayedColumns:string[]= ['IdItem','Code', 'Name', 'Description', 'Quantity', 'Actions']
   dataProduct = new MatTableDataSource<Product>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
